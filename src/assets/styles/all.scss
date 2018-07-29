@@ -1,0 +1,72 @@
+@import "./variables";
+html, body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 64px;
+}
+
+.subtitle {
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.subtitle-2 {
+  font-weight: normal;
+  font-size: 24px;
+}
+
+p {
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.square {
+  width: 10px;
+  height: 10px;
+  background-color: $black;
+}
+
+.triangle {
+  height: 0;
+  width: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid $black;
+}
+
+.circle {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: $black;
+}
+
+@each $name, $color in $colors {
+  .bb-#{$name} {
+    border-bottom-color: $color;
+  }
+}
+
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    background-color: $color;
+  }
+}
+
+@for $i from 1 through 5 {
+  .z-#{$i*100} {
+    z-index: $i*100;
+  }
+}
+
+@for $i from 1 through 3 {
+  .rotate-#{$i*90} {
+    transform: rotate($i*90deg);
+  }
+}

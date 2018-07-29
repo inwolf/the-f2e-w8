@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <opening v-if="step==='opening'" @update="()=>step='question1'"></opening>
-    <question1 v-if="step==='question1'"></question1>
+    <opening v-if="question===0" @update="question++"></opening>
+    <question1 v-if="question===1" @update="addScore"></question1>
+    <template v-if="question===2">
+      <div class="subtitle text-black">That's it for now...</div>
+    </template>
   </div>
 </template>
 
@@ -17,8 +20,15 @@ export default {
   },
   data() {
     return {
-      step: "opening"
+      question: 0,
+      score: 0
     };
+  },
+  methods: {
+    addScore(val) {
+      this.score += val;
+      this.question++;
+    }
   }
 };
 </script>

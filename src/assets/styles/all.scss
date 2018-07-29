@@ -4,16 +4,23 @@ html, body {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   box-sizing: border-box;
+  color: $white;
+}
+
+#app {
+  // min-width: 1024px;
 }
 
 .title {
   font-weight: bold;
   font-size: 64px;
+  line-height: 75px;
 }
 
 .subtitle {
   font-weight: bold;
   font-size: 36px;
+  line-height: 1.5;
 }
 
 .subtitle-2 {
@@ -48,6 +55,12 @@ p {
 }
 
 @each $name, $color in $colors {
+  .text-#{$name} {
+    color: $color;
+  }
+}
+
+@each $name, $color in $colors {
   .bb-#{$name} {
     border-bottom-color: $color;
   }
@@ -69,4 +82,44 @@ p {
   .rotate-#{$i*90} {
     transform: rotate($i*90deg);
   }
+}
+
+.question-container {
+  margin-top: 68px;
+  max-width: 380px;
+  .title {
+    margin-bottom: 10px;
+    width: 100px;
+    text-align: center;
+  }
+  .subtitle {
+    margin-bottom: 16px;
+  }
+  .subtitle-2 {
+    margin-bottom: 40px;
+  }
+}
+
+.button {
+  @extend p;
+  background-color: transparent;
+  border: 2px solid $white;
+  border-radius: 30.5px;
+  margin-bottom: 16px;
+  color: $white;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 8px 0;
+  line-height: 36px;
+  cursor: pointer;
+  &:hover,
+  &.active {
+    background-color: $white;
+    color: $light-blue;
+  }
+}
+
+.hidden {
+  display: none;
 }
